@@ -1,8 +1,10 @@
 package com.springTest.apiTest.config;
 
+import com.springTest.apiTest.entities.Category;
 import com.springTest.apiTest.entities.Order;
 import com.springTest.apiTest.entities.OrderStatus;
 import com.springTest.apiTest.entities.User;
+import com.springTest.apiTest.repositories.CategoryRepository;
 import com.springTest.apiTest.repositories.OrderRepository;
 import com.springTest.apiTest.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,18 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public void run(String... args) throws Exception {
+
+        Category category1 = new Category(null, "Hamburgueres");
+        Category category2 = new Category(null, "Pizzas");
+        Category category3 = new Category(null, "Bebidas");
+
+        categoryRepository.saveAll(Arrays.asList(category1, category2, category3));
+
         User u1 = new User(null, "NameTest1", "emailTest1@email.com", "9999999", "123456");
         User u2 = new User(null, "NameTest2", "emailTest2@email.com", "9999991", "123456");
 
