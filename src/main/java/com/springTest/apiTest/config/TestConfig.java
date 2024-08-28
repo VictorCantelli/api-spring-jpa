@@ -1,11 +1,9 @@
 package com.springTest.apiTest.config;
 
-import com.springTest.apiTest.entities.Category;
-import com.springTest.apiTest.entities.Order;
-import com.springTest.apiTest.entities.OrderStatus;
-import com.springTest.apiTest.entities.User;
+import com.springTest.apiTest.entities.*;
 import com.springTest.apiTest.repositories.CategoryRepository;
 import com.springTest.apiTest.repositories.OrderRepository;
+import com.springTest.apiTest.repositories.ProductRepository;
 import com.springTest.apiTest.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -28,6 +26,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private ProductRepository productRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -35,7 +36,15 @@ public class TestConfig implements CommandLineRunner {
         Category category2 = new Category(null, "Pizzas");
         Category category3 = new Category(null, "Bebidas");
 
+        Product p1 = new Product("", 29.9, "Hambúrguer com queijo, alface, tomate e molho especial.", "Classic Cheeseburger", null);
+        Product p2 = new Product("", 45.0, "Pizza com molho de tomate, queijo e pepperoni.", "Pepperoni Pizza", null);
+        Product p3 = new Product("", 3.5, "Refrigerante gaseificado sabor cola.", "Coca-Cola", null);
+        Product p4 = new Product("", 34.9, "Hambúrguer com bacon, queijo cheddar e molho barbecue.", "BBQ Bacon Burger", null);
+        Product p5 = new Product("", 43.0, "Pizza com molho de tomate, queijo, presunto e abacaxi.", "Hawaiian Pizza", null);
+        Product p6 = new Product("", 2.0, "Água mineral sem gás.", "Água Mineral", null);
+
         categoryRepository.saveAll(Arrays.asList(category1, category2, category3));
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6));
 
         User u1 = new User(null, "NameTest1", "emailTest1@email.com", "9999999", "123456");
         User u2 = new User(null, "NameTest2", "emailTest2@email.com", "9999991", "123456");
