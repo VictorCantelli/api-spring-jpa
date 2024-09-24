@@ -1,5 +1,5 @@
 > [!NOTE]
-> Repositório para estudar meios de criar e otimizar APIs utilizando Java, Maven, Spring Boot, Spring JPA e também testar implementações utilizando Spring Security.
+> API desenvolvida em Java, Maven, Spring (Boot, JPA e Security).
 
 
 <p align="center">
