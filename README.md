@@ -1,5 +1,5 @@
 > [!NOTE]
-> API desenvolvida em Java, Maven, Spring (Boot, JPA e Security).
+> API desenvolvida utiizando Java, Maven, Spring (Boot, JPA e Security).
 
 
 <p align="center">
