@@ -1,9 +1,11 @@
 package com.springTest.apiTest.resources;
 
+import com.springTest.apiTest.dto.ProductDTO;
 import com.springTest.apiTest.entities.Product;
 import com.springTest.apiTest.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,15 +20,14 @@ public class ProductResource {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAll() {
-        List<Product> list = productService.findAll();
-        return ResponseEntity.ok().body(list);
+    public List<ProductDTO> getAllProducts() {
+        return productService.findAll();
     }
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Product> findById(@PathVariable Long id) {
-        Product product = productService.findById(id);
-        return ResponseEntity.ok().body(product);
+    @Transactional
+    public ProductDTO findById(@PathVariable Long id) {
+        return productService.getProductById(id);
     }
 }
