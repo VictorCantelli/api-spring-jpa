@@ -1,10 +1,8 @@
-package com.springTest.apiTest.resources;
+package com.springTest.apiTest.controllers;
 
 import com.springTest.apiTest.dto.ProductDTO;
-import com.springTest.apiTest.entities.Product;
 import com.springTest.apiTest.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 

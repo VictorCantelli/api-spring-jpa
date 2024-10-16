@@ -1,5 +1,6 @@
-package com.springTest.apiTest.resources;
+package com.springTest.apiTest.controllers;
 
+import com.springTest.apiTest.dto.OrderDTO;
 import com.springTest.apiTest.entities.Order;
 import com.springTest.apiTest.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +16,17 @@ import java.util.List;
 @RequestMapping(value = "/orders")
 public class OrderResource {
     @Autowired
-    private OrderService OrderService;
+    private OrderService orderService;
 
     @GetMapping
-    public ResponseEntity<List<Order>> findAll() {
-        List<Order> list = OrderService.findAll();
+    public ResponseEntity<List<OrderDTO>> findAll() {
+        List<OrderDTO> list = orderService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Order> findById(@PathVariable Long id) {
-        Order Order = OrderService.findById(id);
-        return ResponseEntity.ok().body(Order);
+    public ResponseEntity<OrderDTO> findById(@PathVariable Long id) {
+        OrderDTO order = orderService.findById(id);
+        return ResponseEntity.ok().body(order);
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
+    @EntityGraph(attributePaths = {"categories"})
     Optional<Product> findById(Long id);
 
     @EntityGraph(attributePaths = {"categories"})

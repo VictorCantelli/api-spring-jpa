@@ -1,4 +1,4 @@
-package com.springTest.apiTest.resources;
+package com.springTest.apiTest.controllers;
 
 import com.springTest.apiTest.entities.Category;
 import com.springTest.apiTest.services.CategoryService;

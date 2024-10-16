@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 public class ProductDTO {
     private Long id;
     private String name;
+    private String description;
+    private Double price;
+    private String imgUrl;
     private List<CategoryDTO> categories;
 
     public ProductDTO() {
@@ -28,6 +31,30 @@ public class ProductDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public List<CategoryDTO> getCategories() {
